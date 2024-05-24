@@ -12,20 +12,17 @@ const generateCompChoice = () => {
 };
 
 const drawGame = () => {
-    console.log("Game is draw.");
     msg.innerText = "Game was draw!";
     msg.style.backgroundColor = "gold";
 };
 
 const showWinner = (userWin, userChoice, compChoice) => {
     if (userWin) {
-        console.log("You won.");
         msg.innerText = `Congratulations! You won.`;
         msg.style.backgroundColor = "green";
         userScore++;
         document.querySelector("#user-score").innerText = userScore;
     } else {
-        console.log("You lost.");
         msg.innerText = "Oops! You lost.";
         msg.style.backgroundColor = "red";
         compScore++;
@@ -47,9 +44,7 @@ resetGame.addEventListener("click", () => {
 });
 
 const playGame = (userChoice) => {
-    console.log("User Choice = ", userChoice);
     const compChoice = generateCompChoice();
-    console.log("Comp Choice = ", compChoice);
     if (userChoice === compChoice) {
         drawGame();
     } else {
@@ -68,10 +63,8 @@ const playGame = (userChoice) => {
 };
 
 choices.forEach((choice) => {
-    console.log(choice);
     choice.addEventListener("click", () => {
         const userChoice = choice.getAttribute("id");
-        console.log("choice clicked", userChoice);
         playGame(userChoice);
     });
 });
